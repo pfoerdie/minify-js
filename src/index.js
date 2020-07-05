@@ -1,14 +1,18 @@
 const
+    /** {@link https://nodejs.org/api/path.html Path Documentation} */
     Path = require("path"),
+    /** {@link https://nodejs.org/api/fs.html File System Documentation} */
     Fs = require("fs"),
+    /** {@link https://esprima.readthedocs.io/en/latest/ Esprima Documentation} */
     Esprima = require("esprima"),
+    /** @type {String<application/javascript>} */
     program = Fs.readFileSync(Path.join(__dirname, "index.js")).toString();
 
 // tokenized programm
 exports.tokens = Esprima.tokenize(program, {
     range: false, // Annotate each token with its zero-based start and end location
     loc: false, // Annotate each token with its column and row-based location
-    comment: true, // Include every line and block comment in the output
+    comment: false, // Include every line and block comment in the output
 });
 
 // parsed common js
