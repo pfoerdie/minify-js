@@ -1,1 +1,1 @@
-# minify-js
+# @pfoerdie/minify-js
